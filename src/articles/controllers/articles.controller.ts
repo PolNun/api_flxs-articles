@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UseGuards, ValidationPipe } from "@nestjs/common";
 import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { ArticlesService } from "../services/articles.service";
-import { ArticleAttributes } from "../interfaces/ArticleAttributes";
-import { GetArticlesFilterDto } from "../interfaces/GetArticlesFilterDto";
 import { JwtAuthGuard } from "../../security/guards/jwt-auth.guard";
 import { ArticleAttributesDto, ArticleDto } from "../../swagger/dto/ArticleAttributesDto";
+import { GetArticlesFilterDto } from "../models/GetArticlesFilterDto";
+import { ArticleAttributes } from "../models/ArticleAttributes";
 
 @ApiTags("articles")
 @ApiBearerAuth()

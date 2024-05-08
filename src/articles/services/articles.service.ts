@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { ArticleRepository } from "../repositories/article.repository";
 import { Article } from "../models/article.model";
-import { ArticleAttributes } from "../interfaces/ArticleAttributes";
-import { GetArticlesFilterDto } from "../interfaces/GetArticlesFilterDto";
+import { ArticleAttributes } from "../models/ArticleAttributes";
+import { GetArticlesFilterDto } from "../models/GetArticlesFilterDto";
 
 @Injectable()
 export class ArticlesService {

@@ -10,8 +10,8 @@ import { SecurityModule } from "./security/security.module";
       host: "localhost",
       port: 5432,
       username: "usuario",
-      password: "clave",
-      database: "flxs_entrevista",
+      password: "contraseña",
+      database: "base de datos",
       autoLoadModels: true,
       synchronize: true,
       dialectOptions: {

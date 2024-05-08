@@ -1,29 +1,29 @@
 import { Injectable } from "@nestjs/common";
-import { InjectModel } from "@nestjs/sequelize";
 import { Article } from "../models/article.model";
+import { ArticleRepository } from "../repositories/article.repository";
 
 @Injectable()
 export class ArticlesService {
-  constructor(@InjectModel(Article) private articleModel: typeof Article) {
+  constructor(private articleRepository: ArticleRepository) {
   }
 
   async create(article: Article) {
-    return null;
+    return this.articleRepository.create(article);
   }
 
   async findAll(): Promise<Article[]> {
-    return null;
+    return this.articleRepository.findAll();
   }
 
   async findOne(id: string): Promise<Article> {
-    return null;
+    return this.articleRepository.findOne(id);
   }
 
   async update(id: string, article: Article) {
-    return null;
+    return this.articleRepository.update(id, article);
   }
 
   async remove(id: string): Promise<void> {
-    return null;
+    return this.articleRepository.remove(id);
   }
 }

@@ -1,35 +1,31 @@
-import { Column, Model, Table } from "sequelize-typescript";
+import { AutoIncrement, Column, Model, PrimaryKey, Table } from "sequelize-typescript";
 
-@Table
-export class Article extends Model {
-  @Column
-  private _name: string;
-  @Column
-  private _brand: string;
-  @Column
-  private _isActive: boolean;
+export interface ArticleAttributes {
+  id?: number;
+  name: string;
+  modified?: Date;
+  brand: string;
+  isActive: boolean;
+}
 
-  get name(): string {
-    return this._name;
-  }
+@Table({
+  tableName: "articulos",
+  timestamps: true,
+  createdAt: "fecha_creacion",
+  updatedAt: "fecha_modificacion"
+})
+export class Article extends Model<Article, ArticleAttributes> {
+  @PrimaryKey
+  @AutoIncrement
+  @Column({ field: "id" })
+  id: number;
 
-  set name(name: string) {
-    this._name = name;
-  }
+  @Column({ field: "nombre" })
+  name: string;
 
-  get brand(): string {
-    return this._brand;
-  }
+  @Column({ field: "marca" })
+  brand: string;
 
-  set brand(brand: string) {
-    this._brand = brand;
-  }
-
-  get isActive(): boolean {
-    return this._isActive;
-  }
-
-  set isActive(isActive: boolean) {
-    this._isActive = isActive;
-  }
+  @Column({ field: "activo" })
+  isActive: boolean;
 }

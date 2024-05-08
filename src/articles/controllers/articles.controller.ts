@@ -30,7 +30,7 @@ export class ArticlesController {
   }
 
   @Delete(":id")
-  remove(@Param("id") id: number) {
-    return this.articlesService.remove(id);
+  disable(@Param("id") id: number) {
+    return this.articlesService.disable(id);
   }
 }

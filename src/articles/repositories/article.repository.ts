@@ -52,7 +52,7 @@ export class ArticleRepository {
     }
   }
 
-  async remove(id: number): Promise<void> {
+  async disable(id: number): Promise<void> {
     try {
       const [affectedCount] = await this.sequelize.getRepository(Article).update({ isActive: false }, { where: { id } });
       if (affectedCount === 0) {

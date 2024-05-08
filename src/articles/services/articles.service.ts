@@ -23,7 +23,7 @@ export class ArticlesService {
     return this.articleRepository.update(id, article);
   }
 
-  async remove(id: number): Promise<void> {
-    return this.articleRepository.remove(id);
+  async disable(id: number): Promise<void> {
+    return this.articleRepository.disable(id);
   }
 }

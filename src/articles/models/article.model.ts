@@ -5,7 +5,7 @@ export interface ArticleAttributes {
   name: string;
   modified?: Date;
   brand: string;
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 @Table({
@@ -26,6 +26,6 @@ export class Article extends Model<Article, ArticleAttributes> {
   @Column({ field: "marca" })
   brand: string;
 
-  @Column({ field: "activo" })
+  @Column({ field: "activo", defaultValue: true })
   isActive: boolean;
 }

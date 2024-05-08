@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { ArticleRepository } from "../repositories/article.repository";
 import { Article } from "../models/article.model";
 import { ArticleAttributes } from "../interfaces/article-attributes.interface";
+import { GetArticlesFilterDto } from "../interfaces/GetArticlesFilterDto";
 
 @Injectable()
 export class ArticlesService {
@@ -12,7 +13,7 @@ export class ArticlesService {
     return this.articleRepository.create(article);
   }
 
-  async findAll(filter?: any): Promise<Article[]> {
+  async findAll(filter?: GetArticlesFilterDto): Promise<Article[]> {
     return this.articleRepository.findAll(filter);
   }
 

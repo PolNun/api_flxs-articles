@@ -2,6 +2,7 @@ import { Inject, Injectable } from "@nestjs/common";
 import { Sequelize } from "sequelize-typescript";
 import { Article } from "../models/article.model";
 import { ArticleAttributes } from "../interfaces/article-attributes.interface";
+import { GetArticlesFilterDto } from "../interfaces/GetArticlesFilterDto";
 
 @Injectable()
 export class ArticleRepository {
@@ -17,7 +18,7 @@ export class ArticleRepository {
     }
   }
 
-  async findAll(filter?: any): Promise<Article[]> {
+  async findAll(filter?: GetArticlesFilterDto): Promise<Article[]> {
     try {
       return await this.sequelize.getRepository(Article).findAll({ where: filter });
     } catch (error) {

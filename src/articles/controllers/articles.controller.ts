@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from "@nestj
 import { ApiTags } from "@nestjs/swagger";
 import { ArticlesService } from "../services/articles.service";
 import { ArticleAttributes } from "../interfaces/article-attributes.interface";
+import { GetArticlesFilterDto } from "../interfaces/GetArticlesFilterDto";
 
 @ApiTags("articles")
 @Controller("articles")
@@ -15,7 +16,7 @@ export class ArticlesController {
   }
 
   @Get()
-  findAll(@Query() filter: any) {
+  findAll(@Query() filter: GetArticlesFilterDto) {
     return this.articlesService.findAll(filter);
   }
 

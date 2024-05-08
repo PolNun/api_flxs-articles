@@ -6,6 +6,10 @@ export class GetArticlesFilterDto {
   name?: string;
 
   @IsOptional()
+  @IsString()
+  brand?: string;
+
+  @IsOptional()
   @IsBoolean()
   isActive?: boolean;
 

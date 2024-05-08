@@ -2,7 +2,7 @@ import { Inject, Injectable } from "@nestjs/common";
 import { Sequelize } from "sequelize-typescript";
 import { Article } from "../models/article.model";
 import { ArticleAttributes } from "../interfaces/article-attributes.interface";
-import { GetArticlesFilterDto } from "../interfaces/GetArticlesFilterDto";
+import { Op } from "sequelize";
 
 @Injectable()
 export class ArticleRepository {
@@ -18,8 +18,11 @@ export class ArticleRepository {
     }
   }
 
-  async findAll(filter?: GetArticlesFilterDto): Promise<Article[]> {
+  async findAll(filter?: any): Promise<Article[]> {
     try {
+      if (filter.brand) filter.brand = { [Op.like]: `%${filter.brand}%` };
+      if (filter.name) filter.name = { [Op.like]: `%${filter.name}%` };
+
       return await this.sequelize.getRepository(Article).findAll({ where: filter });
     } catch (error) {
       console.error("Error while finding all articles:", error);

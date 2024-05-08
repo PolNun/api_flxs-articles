@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { ArticlesService } from "../services/articles.service";
 import { ArticleAttributes } from "../models/article.model";
@@ -15,8 +15,8 @@ export class ArticlesController {
   }
 
   @Get()
-  findAll() {
-    return this.articlesService.findAll();
+  findAll(@Query() filter: any) {
+    return this.articlesService.findAll(filter);
   }
 
   @Get(":id")

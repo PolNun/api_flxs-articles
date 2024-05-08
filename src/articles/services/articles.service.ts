@@ -11,8 +11,8 @@ export class ArticlesService {
     return this.articleRepository.create(article);
   }
 
-  async findAll(): Promise<Article[]> {
-    return this.articleRepository.findAll();
+  async findAll(filter?: any): Promise<Article[]> {
+    return this.articleRepository.findAll(filter);
   }
 
   async findOne(id: number): Promise<Article> {

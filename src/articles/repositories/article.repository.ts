@@ -16,9 +16,9 @@ export class ArticleRepository {
     }
   }
 
-  async findAll(): Promise<Article[]> {
+  async findAll(filter?: any): Promise<Article[]> {
     try {
-      return await this.sequelize.getRepository(Article).findAll();
+      return await this.sequelize.getRepository(Article).findAll({ where: filter });
     } catch (error) {
       console.error("Error while finding all articles:", error);
       throw new Error("Could not find the articles");

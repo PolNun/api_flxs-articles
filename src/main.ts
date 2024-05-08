@@ -9,8 +9,10 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle("API de Artículos")
-    .setDescription("")
-    .setVersion("0.1")
+    .setDescription("Tené en cuenta que hay que autorizar las rutas con el botón " +
+      "verde de la derecha. El token se obtiene del endpoint llamado 'auth'")
+    .setVersion("1.0")
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

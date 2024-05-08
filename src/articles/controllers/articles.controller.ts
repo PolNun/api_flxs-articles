@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { ArticlesService } from "../services/articles.service";
-import { Article } from "../models/article.model";
+import { ArticleAttributes } from "../models/article.model";
 
 @ApiTags("articles")
 @Controller("articles")
@@ -10,7 +10,7 @@ export class ArticlesController {
   }
 
   @Post()
-  create(@Body() article: Article) {
+  create(@Body() article: ArticleAttributes) {
     return this.articlesService.create(article);
   }
 
@@ -20,17 +20,17 @@ export class ArticlesController {
   }
 
   @Get(":id")
-  findOne(@Param("id") id: string) {
+  findOne(@Param("id") id: number) {
     return this.articlesService.findOne(id);
   }
 
   @Patch(":id")
-  update(@Param("id") id: string, @Body() article: Article) {
+  update(@Param("id") id: number, @Body() article: ArticleAttributes) {
     return this.articlesService.update(id, article);
   }
 
   @Delete(":id")
-  remove(@Param("id") id: string) {
+  remove(@Param("id") id: number) {
     return this.articlesService.remove(id);
   }
 }

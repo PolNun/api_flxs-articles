@@ -4,6 +4,7 @@ import { ArticlesController } from "./controllers/articles.controller";
 import { ArticleRepository } from "./repositories/article.repository";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { Article } from "./models/article.model";
+import { SecurityModule } from "../security/security.module";
 
 @Module({
   providers: [
@@ -11,9 +12,12 @@ import { Article } from "./models/article.model";
     ArticleRepository
   ],
   imports: [
-    SequelizeModule.forFeature([Article])
+    SequelizeModule.forFeature([Article]),
+    SecurityModule
   ],
-  controllers: [ArticlesController]
+  controllers: [
+    ArticlesController
+  ]
 })
 export class ArticlesModule {
 }

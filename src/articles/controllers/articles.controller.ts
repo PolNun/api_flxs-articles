@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { ArticlesService } from "../services/articles.service";
-import { ArticleAttributes } from "../models/article.model";
+import { ArticleAttributes } from "../interfaces/article-attributes.interface";
 
 @ApiTags("articles")
 @Controller("articles")

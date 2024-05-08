@@ -1,12 +1,5 @@
 import { AutoIncrement, Column, Model, PrimaryKey, Table } from "sequelize-typescript";
-
-export interface ArticleAttributes {
-  id?: number;
-  name: string;
-  modified?: Date;
-  brand: string;
-  isActive?: boolean;
-}
+import { ArticleAttributes } from "../interfaces/article-attributes.interface";
 
 @Table({
   tableName: "articulos",

@@ -1,6 +1,7 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { Sequelize } from "sequelize-typescript";
-import { Article, ArticleAttributes } from "../models/article.model";
+import { Article } from "../models/article.model";
+import { ArticleAttributes } from "../interfaces/article-attributes.interface";
 
 @Injectable()
 export class ArticleRepository {

@@ -1,5 +1,5 @@
 import { AutoIncrement, Column, Model, PrimaryKey, Table } from "sequelize-typescript";
-import { ArticleAttributes } from "../interfaces/article-attributes.interface";
+import { ArticleAttributes } from "../interfaces/ArticleAttributes";
 
 @Table({
   tableName: "articulos",

@@ -1,7 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query, ValidationPipe } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { ArticlesService } from "../services/articles.service";
-import { ArticleAttributes } from "../interfaces/article-attributes.interface";
+import { ArticleAttributes } from "../interfaces/ArticleAttributes";
 import { GetArticlesFilterDto } from "../interfaces/GetArticlesFilterDto";
 
 @ApiTags("articles")
@@ -11,7 +11,7 @@ export class ArticlesController {
   }
 
   @Post()
-  create(@Body() article: ArticleAttributes) {
+  create(@Body(new ValidationPipe()) article: ArticleAttributes) {
     return this.articlesService.create(article);
   }
 

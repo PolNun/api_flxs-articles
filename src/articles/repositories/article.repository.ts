@@ -1,7 +1,7 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { Sequelize } from "sequelize-typescript";
 import { Article } from "../models/article.model";
-import { ArticleAttributes } from "../interfaces/article-attributes.interface";
+import { ArticleAttributes } from "../interfaces/ArticleAttributes";
 import { Op } from "sequelize";
 
 @Injectable()
